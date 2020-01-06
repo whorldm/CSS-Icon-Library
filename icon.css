@@ -1,0 +1,335 @@
+/** 带实心箭头的线段样式 **/
+/* <span class="narrow narrow-row right"></span> */
+.narrow {
+    position: relative;
+    display: inline-block;
+    line-height: 0;
+    background-color: #ccc;
+}
+/*水平方向的箭头*/
+.narrow-row {
+    width: 16px;
+    height: 1px;
+}
+.right::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    right: -8px; /*若朝左，则更换为left*/
+    border: 4px solid transparent;
+    border-left: 4px solid #ccc; /*若更换为border-right，箭头则朝向左*/
+}
+/*竖直方向的箭头*/
+.narrow-col {
+    width: 1px;
+    height: 16px;
+}
+.up::before {
+    content: "";
+    position: absolute;
+    top: -8px; /*若朝下，则更换为left*/
+    left: -5px;
+    border: 6px solid transparent;
+    border-bottom: 6px solid #ccc; /*若更换为border-top，箭头则朝向下*/
+}
+
+/** 导航返回的箭头（两个三角形的错开重叠，无色的覆盖有色的三角形） **/
+.reback-icon {
+    position: relative;
+}
+.reback-icon::before{
+    position: absolute;
+    content: '';
+    border: 10px solid transparent;
+    border-top: 0;
+    border-bottom: 10px solid #0099CC;
+}
+.reback-icon::after{
+    position: absolute;
+    top: 1px; /*覆盖并错开1px*/
+    content: '';
+    border: 10px solid transparent;
+    border-top: 0;
+    border-bottom: 10px solid #ffffff;
+}
+
+/** 微信图标样式 **/
+.wechat-icon {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgb(68, 170, 59);
+}
+.wechat-icon::before {
+    content: "";
+    margin-top: 18px;
+    margin-left: 15px;
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 16px 0 0 #fff;
+}
+.wechat-icon::after {
+    content: "";
+    margin-top: 42px;
+    margin-left: 15px;
+    display: inline-block;
+    border-width: 6px 10px 6px 10px;
+    border-style: solid;
+    border-color: transparent;
+    border-top-color: rgb(68, 170, 59);
+    transform: rotate(-147deg);
+}
+
+/** 地图图标样式 **/
+.location-icon {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #06c;
+}
+.location-icon::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+}
+.location-icon::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 12px solid transparent;
+    border-top-color: #06c;
+}
+
+/** 搜索图标样式 **/
+.search {
+    position: relative;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid #ccc;
+    text-align: center;
+    transform: rotate(-45deg);
+}
+.search::after {
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 5px;
+    background-color: #ccc;
+}
+
+/** user默认头像 **/
+.default-user {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    line-height: 0;
+    border-radius: 50%;
+    background-color: #06c;
+    transform: rotate(-90deg);
+}
+.default-user::before {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 30px;
+    margin-left: -3px;
+    border-radius: 50% 50%;
+    flex-shrink: 0;
+    background-color: #fff;
+}
+.default-user::after {
+    content: "";
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+/** 眼睛图标样式(浏览量) **/
+.view-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 58px;
+    height: 36px;
+    background-color: #06c;
+    border-radius: 50%;
+}
+.view-icon::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+/** 心形图标样式(点赞) **/
+.heart-icon {
+    position: relative;
+    display: inline-block;
+    width:50px;
+    height:40px;
+}
+.heart-icon::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    width: 25px;
+    height: 40px;
+    background-color: red;
+    border-radius: 40px 40px 0 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+.heart-icon::after {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    content: '';
+    width: 25px;
+    height: 40px;
+    background-color: red;
+    border-radius: 40px 40px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+/** 对勾图标(输入校验成功后显示) **/
+.yes-icon {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 48px;
+    height: 48px;
+    background-color: green;
+    border-radius: 50%;
+}
+.yes-icon::after {
+    content: '✓';
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+/** 五角星图标样式(由3个三角形构成) **/
+.five-star-icon {
+    position: relative;
+    margin: 100px;
+    display: inline-block;
+    border-bottom: 80px solid red;
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    transform: scale(0.2); /*用于缩放尺寸*/
+}
+.five-star-icon::before {
+    content: '';
+    position: absolute;
+    top: 70px;
+    left: -100px;
+    border-bottom: 70px solid red;
+    border-right: 100px solid transparent;
+    border-left: 100px solid transparent;
+    transform: rotate(35deg);
+}
+.five-star-icon::after {
+    content: '';
+    position: absolute;
+    top: 70px;
+    left: -100px;
+    border-bottom: 70px solid red;
+    border-right: 100px solid transparent;
+    border-left: 100px solid transparent;
+    transform: rotate(-35deg);
+}
+
+/** 锁图标样式(适用于密码) **/
+.lock-icon {
+    margin: 100px;
+    position: relative;
+    top: 5em;
+    display: block;
+    width: 40px;
+    height: 34px;
+    border-radius: 8px;
+    background: #5588aa;
+}
+.lock-icon:before {
+    content: "";
+    width: 20px;
+    height: 20px;
+    border: 5px solid #5588aa;
+    border-radius: 10px 10px 0 0;
+    position: absolute;
+    left: 50%;
+    top: -22px;
+    margin-left: -15px;
+}
+.lock-icon::after {
+    content: "";
+    width: 14px;
+    height: 12px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/** 八卦图标样式 **/
+.eight-diagrams-icon {
+    position: relative;
+    display: block;
+    width: 96px;
+    height: 48px;
+    background: #eeeeee;
+    border-bottom: 50px solid black;
+    border-radius: 50%;
+}
+.eight-diagrams-icon::before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #eeeeee;
+    border: 18px solid black;
+    border-radius: 50%;
+}
+.eight-diagrams-icon::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: black;
+    border: 18px solid #eeeeee;
+    border-radius: 50%;
+}

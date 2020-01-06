@@ -1,0 +1,117 @@
+/** 分割线样式 **/
+.split-line {
+    position: relative;
+}
+p {
+    text-align: center;
+}
+p::after,
+p::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    height: 1px;
+    width: 45%;
+    background-color: red;
+}
+p::after {
+    right: 0;
+}
+p::before {
+    left: 0;
+}
+
+/** tooltip样式 **/
+a[data-tooltip] {
+    display: inline-block;
+    position: relative;
+    text-decoration: none;
+}
+a[data-tooltip]::after {
+    content: attr(data-tooltip) "@_@";
+    position: absolute;
+    bottom: 130%;
+    left: 20%;
+    background: #ffcb66;
+    padding: 5px 15px;
+    white-space: nowrap;
+    opacity: 1;
+    transition: all 0.5s ease;
+}
+a[data-tooltip]:hover::after {
+    opacity: 1;
+}
+
+/** 平行四边形 **/
+.parallelogram {
+    position: relative;
+    display: inline-block;
+    padding: 0.5em 1em;
+    color: white;
+    text-transform: uppercase; /*将字母转换为大写*/
+    font-weight: bold;
+    font-size: 2em;
+}
+.parallelogram::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: #58a;
+    transform: skew(45deg);
+}
+
+/** 折角阴影效果 **/
+.fold-corner {
+    position: relative;
+    width: 120px;
+    padding: 20px;
+    color: white;
+    text-align: center;
+    background: linear-gradient(-150deg, transparent 1.5em, yellowgreen 0);
+    border-radius: 0.5em;
+}
+.fold-corner::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    height: 3em;
+    width: 1.73em;
+    background: linear-gradient(
+            to left bottom,
+            transparent 50%,
+            rgba(0, 0, 0, 0.2) 0,
+            rgba(0, 0, 0, 0.4)
+        )
+        100% 0 no-repeat;
+    transform: translateY(-1.3em) rotate(-30deg);
+    transform-origin: bottom right;
+    border-bottom-left-radius: inherit;
+    box-shadow: -0.2em 0.2em 0.3em -0.1em rgba(0, 0, 0, 0.15);
+}
+
+/** 气泡对话框样式 **/
+.bubbly {
+    background: #00aabb;
+    border-radius: 0.4em;
+    width: 260px;
+    padding: 20px;
+    color: white;
+    font-size: 200%;
+    text-align: center;
+}
+.bubbly:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    border: 34px solid transparent;
+    border-top-color: #00aabb;
+    border-bottom: 0;
+    border-left: 0;
+    margin: 0 0 -34px -17px;
+}
