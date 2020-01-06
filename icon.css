@@ -117,7 +117,7 @@
 }
 
 /** 搜索图标样式 **/
-.search {
+.search-icon {
     position: relative;
     display: inline-block;
     width: 12px;
@@ -127,7 +127,7 @@
     text-align: center;
     transform: rotate(-45deg);
 }
-.search::after {
+.search-icon::after {
     content: "";
     display: inline-block;
     width: 2px;
